@@ -135,7 +135,8 @@ class ConfigUtility
             }
 
             // 7: login
-            if (empty($checkAccountModel) && $templateId == TempVerifyCode::TEMPLATE_LOGIN_ACCOUNT) {
+            $loginConfig = ConfigHelper::fresnsConfigByItemKey('account_login_or_register');
+            if (empty($checkAccountModel) && ! $loginConfig && $templateId == TempVerifyCode::TEMPLATE_LOGIN_ACCOUNT) {
                 $checkResp['code'] = 34301; // Account not exist
 
                 return $checkResp;
