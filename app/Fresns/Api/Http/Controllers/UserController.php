@@ -319,7 +319,7 @@ class UserController extends Controller
     {
         $dtoRequest = new UserUpdateProfileDTO($request->all());
 
-        if ($dtoRequest->isEmpty()) {
+        if (! $request->has('bio') && $dtoRequest->isEmpty()) {
             throw new ResponseException(30001);
         }
 
@@ -550,7 +550,7 @@ class UserController extends Controller
         }
 
         // update bio
-        if ($dtoRequest->bio) {
+        if ($request->has('bio')) {
             $bio = Str::of($dtoRequest->bio)->trim()->toString();
 
             if ($bio == $authUser->bio) {
