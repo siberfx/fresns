@@ -1,4 +1,5 @@
 {
+    "$schema": "https://getcomposer.org/schema.json",
     "name": "fresns/fresns",
     "type": "project",
     "description": "Cross-platform general-purpose multiple content forms social network service software.",
@@ -34,7 +35,7 @@
     ],
     "require": {
         "php": "^8.2",
-        "laravel/framework": "^11.30",
+        "laravel/framework": "^11.33",
         "laravel/tinker": "^2.10",
         "laravel/ui": "^4.5",
         "fresns/dto": "^1.3",
@@ -49,7 +50,7 @@
         "fakerphp/faker": "^1.24",
         "laravel/pail": "^1.2",
         "laravel/pint": "^1.18",
-        "laravel/sail": "^1.37",
+        "laravel/sail": "^1.38",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.5",
         "phpunit/phpunit": "^11.4",
