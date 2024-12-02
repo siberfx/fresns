@@ -148,6 +148,15 @@ class DateHelper
         return $newDatetime->format($dateTimeFormat);
     }
 
+    // Converts a decimal number representing hours into "hh:mm" format.
+    public static function convertDecimalToHours(float $value)
+    {
+        $value = (float) $value;
+        $decimalPart = $value - floor($value);
+
+        return ($decimalPart == 0) ? (int) $value : (int) ($value).':'.((int) ($decimalPart * 100) * 60) / 100;
+    }
+
     // Output time values by time zone
     public static function fresnsDateTimeByTimezone(?string $datetime = null, ?string $timezone = null, ?string $langTag = null): ?string
     {
@@ -163,10 +172,10 @@ class DateHelper
             $dbTimezone = DateHelper::fresnsDatabaseTimezone();
             $dbTimezoneSign = $dbTimezone[0] == '+' ? '-' : '+';
 
-            $newDatetime = new DateTime($datetime, new DateTimeZone('Etc/GMT'.$dbTimezoneSign.substr($dbTimezone, 1)));
+            $newDatetime = new DateTime($datetime, new DateTimeZone('Etc/GMT'.$dbTimezoneSign.static::convertDecimalToHours((float) $dbTimezone)));
 
-            $timezoneSign = $timezone[0] == '+' ? '-' : '+';
-            $targetTimezone = new DateTimeZone('Etc/GMT'.$timezoneSign.substr($timezone, 1));
+            $timezoneSign = $timezone[0];
+            $targetTimezone = new DateTimeZone('GMT'.$timezoneSign.static::convertDecimalToHours((float) $timezone));
 
             $newDatetime->setTimezone($targetTimezone);
         } else {
