@@ -157,7 +157,7 @@ class DateHelper
         return ($decimalPart == 0) ? (int) $value : (int) ($value).':'.((int) ($decimalPart * 100) * 60) / 100;
     }
 
-    // Output time values by time zone
+    // Output time value by time zone
     public static function fresnsDateTimeByTimezone(?string $datetime = null, ?string $timezone = null, ?string $langTag = null): ?string
     {
         if (! $datetime) {
