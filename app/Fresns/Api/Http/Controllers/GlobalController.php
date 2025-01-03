@@ -126,7 +126,7 @@ class GlobalController extends Controller
 
         $items = [];
         foreach ($itemKeys as $itemKey) {
-            $items[$itemKey] = $configs[$itemKey];
+            $items[$itemKey] = $configs[$itemKey] ?? null;
         }
 
         return $this->success($items);
