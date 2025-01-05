@@ -12,7 +12,7 @@ return [
     'langs' => [
         'en' => 'English - English',
         'es' => 'Español - Spanish',
-        'fa' => 'ایران - فارسی',
+        'fa' => 'فارسی - Persian',
         'fr' => 'Français - French',
         'de' => 'Deutsch - German',
         'it' => 'Italiano - Italian',

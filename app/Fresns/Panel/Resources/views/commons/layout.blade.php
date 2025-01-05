@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ App::getLocale() }}">
+<html lang="{{ App::getLocale() }}" dir="{{ App::getLocale() == 'fa' ? 'rtl' : 'ltr' }}">
 
 <head>
     <meta charset="utf-8">
@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ __('FsLang::panel.fresns_panel') }}</title>
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="/static/css/bootstrap.min.css?v={{ $versionMd5 }}">
+    <link rel="stylesheet" href="{{ App::getLocale() == 'fa' ? '/static/css/bootstrap.rtl.min.css' : '/static/css/bootstrap.min.css' }}?v={{ $versionMd5 }}">
     <link rel="stylesheet" href="/static/css/bootstrap-icons.min.css?v={{ $versionMd5 }}">
     <link rel="stylesheet" href="/static/css/select2.min.css?v={{ $versionMd5 }}">
     <link rel="stylesheet" href="/static/css/select2-bootstrap-5-theme.min.css?v={{ $versionMd5 }}">

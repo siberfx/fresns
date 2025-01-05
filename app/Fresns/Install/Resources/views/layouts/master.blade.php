@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ App::getLocale() }}">
+<html lang="{{ App::getLocale() }}" dir="{{ App::getLocale() == 'fa' ? 'rtl' : 'ltr' }}">
 
 <head>
     <meta charset="utf-8">
@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Fresns {{ __('Install::install.title') }}</title>
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ App::getLocale() == 'fa' ? '/static/css/bootstrap.rtl.min.css' : '/static/css/bootstrap.min.css' }}">
     <link rel="stylesheet" href="/static/css/bootstrap-icons.min.css">
     <link rel="stylesheet" href="/static/css/fresns-panel.css">
 </head>
