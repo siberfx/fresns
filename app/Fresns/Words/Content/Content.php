@@ -357,7 +357,7 @@ class Content
                 $comment = ContentUtility::releaseComment($logModel);
 
                 $primaryId = $comment->id;
-                $fsid = $comment->pid;
+                $fsid = $comment->cid;
                 break;
         }
 
