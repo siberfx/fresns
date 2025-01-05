@@ -58,7 +58,7 @@ class AppUtility
         $newVersionInfo = CacheHelper::get($cacheKey, $cacheTag);
 
         if (empty($newVersionInfo)) {
-            $response = Http::fresns()->get('/v3/version-3.json');
+            $response = Http::fresns()->get('/v3/version-4.json');
 
             $newVersionInfo = [];
             if ($response->ok()) {
