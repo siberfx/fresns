@@ -72,4 +72,9 @@ trait GeotagServiceTrait
 
         return $info;
     }
+
+    public function getCoverUrl(): ?string
+    {
+        return FileHelper::fresnsFileUrlByTableColumn($this->cover_file_id, $this->cover_file_url);
+    }
 }
