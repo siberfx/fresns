@@ -22,7 +22,7 @@
         </div>
 
         <div class="text-center">
-            <p class="my-5 text-muted">&copy; <span class="copyright-year"></span> Fresns</p>
+            <p class="my-5 text-muted">&copy; {{ date('Y') }} Fresns</p>
         </div>
     </main>
 @endsection

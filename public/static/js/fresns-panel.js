@@ -10,14 +10,6 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
     return new bootstrap.Tooltip(tooltipTriggerEl);
 });
 
-// copyright-year
-var yearElement = document.querySelector('.copyright-year');
-var currentDate = new Date();
-var currentYear = currentDate.getFullYear();
-if (yearElement) {
-    yearElement.textContent = currentYear;
-}
-
 /* Fresns Token */
 $.ajaxSetup({
     headers: {
