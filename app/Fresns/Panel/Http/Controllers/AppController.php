@@ -34,7 +34,7 @@ class AppController extends Controller
             $pluginQuery->isEnabled($isEnabled);
         }
 
-        $plugins = $pluginQuery->latest()->paginate(30);
+        $plugins = $pluginQuery->orderByDesc('updated_at')->paginate(30);
 
         $enableCount = App::type(App::TYPE_PLUGIN)->isEnabled()->count();
         $disableCount = App::type(App::TYPE_PLUGIN)->isEnabled(false)->count();
@@ -45,7 +45,7 @@ class AppController extends Controller
     // themes
     public function themes(Request $request)
     {
-        $themes = App::type(App::TYPE_THEME)->latest()->get();
+        $themes = App::type(App::TYPE_THEME)->orderByDesc('updated_at')->get();
 
         // config keys
         $configKeys = [
@@ -84,7 +84,7 @@ class AppController extends Controller
     // apps
     public function apps(Request $request)
     {
-        $apps = App::whereIn('type', [App::TYPE_APP_REMOTE, App::TYPE_APP_DOWNLOAD])->latest()->paginate(30);
+        $apps = App::whereIn('type', [App::TYPE_APP_REMOTE, App::TYPE_APP_DOWNLOAD])->orderByDesc('updated_at')->paginate(30);
 
         return view('FsView::app-center.apps', compact('apps'));
     }
