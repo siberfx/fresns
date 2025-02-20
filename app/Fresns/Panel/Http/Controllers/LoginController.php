@@ -130,7 +130,7 @@ class LoginController extends Controller
             Cookie::queue(Cookie::forever('fresns_panel_locale', config('app.locale'), '/'));
         }
 
-        $versionMd5 = AppHelper::VERSION_MD5_16BIT;
+        $versionMd5 = md5(AppHelper::VERSION);
 
         return view('FsView::auth.login', compact('versionMd5'));
     }
@@ -146,7 +146,7 @@ class LoginController extends Controller
         $siteUrlConfig = Config::where('item_key', 'site_url')->first();
         $siteUrl = $siteUrlConfig->item_value ?? '/';
 
-        $versionMd5 = AppHelper::VERSION_MD5_16BIT;
+        $versionMd5 = md5(AppHelper::VERSION);
 
         return view('FsView::auth.empty', compact('siteUrl', 'versionMd5'));
     }

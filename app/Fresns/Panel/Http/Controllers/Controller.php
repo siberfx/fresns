@@ -109,8 +109,9 @@ class Controller extends BaseController
         View::share('communityUrl', $communityUrl);
         View::share('marketplaceUrl', $marketplaceUrl);
 
-        // md5 16bit
-        View::share('versionMd5', AppHelper::VERSION_MD5_16BIT);
+        // version md5
+        $versionMd5 = md5(AppHelper::VERSION);
+        View::share('versionMd5', $versionMd5);
     }
 
     public function requestSuccess()
